@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #2d1810;
+  --secondary-color: #8b4513;
+  --accent-color: #c17817;
+  --background-color: #f4e4bc;
+  --card-color: #fffaf0;
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Frank Ruhl Libre", serif;
+  background-color: var(--background-color);
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--card-color);
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 3rem;
+  text-shadow: var(--text-shadow);
+  color: #ffd700;
+}
+
+.subtitle {
+  color: #deb887;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-shadow: var(--text-shadow);
+}
+
+.principles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.principle-card {
+  background: var(--card-color);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+  overflow: hidden;
+}
+
+.principle-header {
+  padding: 1.2rem;
+  gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--card-color), #f4e4bc);
+}
+
+.principle-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+  font-weight: bold;
+}
+
+.principle-card.active .toggle-icon {
+  transform: rotate(45deg);
+}
+
+.principle-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 1.5rem;
+}
+
+.principle-card.active .principle-content {
+  max-height: 800px;
+  padding: 1.5rem;
+  border-top: 1px solid var(--secondary-color);
+}
+
+.principle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.principle-card {
+  animation: cardAppear 0.5s ease-out forwards;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  color: var(--card-color);
+  margin-top: 2rem;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .principles-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .principle-card {
+    margin: 1rem;
+  }
+}
+
+.principle-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--secondary-color);
+  text-align: justify;
+  padding: 0.5rem;
+}
+
+.additional-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.additional-info h4 {
+  color: var(--accent-color);
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.3rem;
+}
+
+.additional-info ul {
+  list-style-type: none;
+  padding-right: 1.2rem;
+}
+
+.additional-info li {
+  position: relative;
+  margin: 0.5rem 0;
+  padding-right: 1.2rem;
+}
+
+.additional-info li::before {
+  content: "◆";
+  position: absolute;
+  right: -1.2rem;
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+
+.main-explanation {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  border-right: 3px solid var(--accent-color);
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+}
